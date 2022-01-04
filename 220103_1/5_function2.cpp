@@ -35,6 +35,17 @@ char squre(char c){
     return c * c;
 }
 
+long square(long l){
+    printf("long");
+}
+
 int main(){
+    square(42);
 
 }
+
+
+//오버로딩 규칭
+// 1. 정확한 타입을 찾습니다. square(42) -> square(int)
+// - 상승 square(int) -> square(long)  //컴파일 버전에 따라 달라진듯..
+// - 호환 square(int) -> square(char)  //컴파일 버전에 따라 달라진듯..
