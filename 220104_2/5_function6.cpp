@@ -52,7 +52,8 @@ int main(){
     // int (*p2)(int a, int b) //p2는 포인터 (int a, int b) 받고 int를 반환하는
     int (*p2)(int a, int b) = &add;
 
-    //p2 = &sub; //cout << (*p2)(10, 20) << endl; => -10
+    //이 방식 쓰는 방법 하나 더 있는데 강사님은 이걸 더 추천한다. 근데 뭐였는지 다시 찾아봐라
+    //p2 = &sub; //cout << (*p2)(10, 20) << endl; => -10              
     cout << (*p2)(10, 20) << endl; //30
 }
 

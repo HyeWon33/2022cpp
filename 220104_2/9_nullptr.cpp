@@ -16,3 +16,6 @@ int main(){
     bool b (nullptr); //직접 초기화서 nullptor을 bool에 암묵적 변환이 허용된다.
     
 }
+
+//NULL 
+// => #define NULL (void*)0
