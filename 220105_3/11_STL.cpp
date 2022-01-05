@@ -50,12 +50,28 @@ int main(){
 }
 */
 
+
 //탐색
-//1. Tree
+//1. Tree => <map>
 // - 탐색 - logN
 // - 정렬 , O(N)
 
 
-//2. Hashtable
+//2. Hashtable => <unorgered_map>
+// - 탐색 - O(1)
+// - 데이터 저장되는 순서가 다릅니다.
+//  => 퀵소트 : O(NlogN)
 //동일한 hash값 나오면 충돌 이라고 한다.
 
+//map => 키-값 쌍으로 이루어진 데이터
+//      C++ / Java
+//      c#  / Swift - Dictionary 라고도 부른다.
+#include <map>
+int main(){
+    std::map<std::string, std::string> data;
+    data["홍길동"] = "010-1234-5678";
+    data["이순신"] = "010-1111-2222";
+
+    std::cout << data["홍길동"] << std::endl;
+    std::cout << data["이순신"] << std::endl;
+}
