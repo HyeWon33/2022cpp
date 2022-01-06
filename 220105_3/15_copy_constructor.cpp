@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+//복사 생성자
+
 class Point{
     int x, y;
 

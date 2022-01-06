@@ -2,6 +2,10 @@
 #include <cstring>
 using namespace std;
 
+//얕은 복사 - 여러번 삭제되는 문제
+// - 깊은 복사로 문제 해결
+// - 참조계수로 문제 해결
+
 /*
 class User{
     char *name;
@@ -9,7 +13,7 @@ class User{
 public:
     User(const char *n, int a) : age(a)
     {
-        name = new char[strlen(n) + 1];
+        name = new char[strlen(n) + 1];  //깊은복사 코드
         strcpy(name, n);
     }
     //컴파일러가 제공하는  복사 생성자의 형태입니다.
@@ -145,7 +149,7 @@ public:
 
     ~User(){
         //참조 계수를 감소하고, 0이 되면 메모리를 해지합니다.
-        if(--(*rf) == 0){
+        if(--(*ref) == 0){
             delete[] name;
             delete ref;   
         }
@@ -157,3 +161,4 @@ int main(){
     User user1("Yoon", 42);
     User user2(user1); //!! 오류 발생...
 }
+
