@@ -13,6 +13,9 @@ public:
     // Shape의 객체를 생성하지 않는다면, 아래 함수는 호출되지 않는다.
     // 4. 부모 입장에서 구현을 제공할 필요가 없고, 자식이 반드시 재정의를 해야 한다면, "순수 가상 함수"를 이용해야 한다.
 
+    // 5. 순수 가상 함수를 1개 이상 가지고 있는 클래스는 "추상 클래스(Abstract class)"라고 한다.
+    // = 추상 클래스는 인스턴스화가 불가능 하다.
+
     virtual void Draw() = 0
 
     #if 0
@@ -24,6 +27,9 @@ public:
 
 class Rect : public Shap{
 public:
+    ~Rect() { cout << "~Rect" << endl;}
+
+    // 6. 부모 클래스의 순수 가상 함수를 오버라이딩 해서, 구현을 제공하지 않을 경우 자신도 "추상 클래스"로 취급된다.
     void Draw() override{
         cout << "Rect draw" << endl;
     }
