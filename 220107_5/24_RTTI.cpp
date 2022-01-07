@@ -6,9 +6,11 @@ using namespace std;
 
 class Car{
 public:
+    virtual ~Car() {} //!
     int color;
 };
 
+// 부모 소멸자가 가상이면 자식 클래스의 소멸자도 가상이다.
 class Sedan : public Car {
 public :
     int speed = 100;    
@@ -18,7 +20,7 @@ void Go(Car* p){
     // p가 Sedan이면 speed를 출력하고 싶다.
     // 체크 없이 사용할 경우
     // Sedan* s = static_cast<Sedan*>(p);
-    cout << "Speed : " << s->speed << endl;
+    // cout << "Speed : " << s->speed << endl;
 
     // RTTI사용방법
     //  - 모든 타입은 자신의 타입의 정보를 가지고 있는 type_info 구조체가 있다.
@@ -31,14 +33,19 @@ void Go(Car* p){
     // => 만약 동일한 타입이면, t1과 t2는 동일합니다.
     if(t1 == t2){
         cout << "p는 Sedan 타입입니다." << endl;
+
+        Sedan* s = static_cast<Sedan*>(p);
+        cout << s->speed << endl;
     }
     else{
         cout << "p는 Sedan 타입이 아닙니다. " << endl;
     }
     
     // cout << t.name() << endl;
-    // // 문제점 : type_info를 통해 얻을 수 있는 문자열 이름이 표준화에 포함되지 않았다.
-    //  > 컴파일러마다 다른 결과가 나온다.
+    // 문제점 : 
+    //  1. type_info를 통해 얻을 수 있는 문자열 이름이 표준화에 포함되지 않았다.
+    //   > 컴파일러마다 다른 결과가 나온다.
+    //  2. type_info는 가상함수 테이블 안에 존재합니다.
 }
 
 int main(){
