@@ -20,8 +20,12 @@ public:
     // > 멤버 데이터는 이름의 뒤에 언더스코어형식을 권장한다.
     // void set(const std::string& name, int age) {} : this->name(name), this->age(age)  // => error
     void set(const std::string& name, int age){
+        // 1. this를 명시한다.
         // this->name = name;
         // this->age = age;
+
+        // 2. 멤버 데이터의 이름을 다른 형식으로 사용한다.
+        // ex) name_ / age_,  _name / _age (권장 X 이름 충돌 할 수도), m_name / m_age (옛날 방식)
         name_ = name;
         age_ = age;
     } 

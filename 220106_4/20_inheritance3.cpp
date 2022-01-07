@@ -40,17 +40,17 @@ public:
     // > 부모가 기본 생성자를 제공하지 않을 경우, 명시적으로 부모의 생성자를 호출해야 한다.
 
     Derived() : Base(42) {cout << "Derived()" << endl;}
+    // : Base() - 컴파일러가 자동으로 처리해 준다.
     //Base(int)
+
 
     ~Derived() {
         cout << "~Derived()" << endl;
         //~Base()
         //컴파일러가 자동으로 삽입해서 호출해준다.
-
     }
 };
 
 int main(){
     Derived d;
-
 }

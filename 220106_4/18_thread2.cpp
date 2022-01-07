@@ -15,6 +15,21 @@ int sum = 0;
 
 pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 
+
+// 원래 코드
+/*
+void *thread_routine(void *arg){
+    printf("%s\n", (char *)arg);
+
+    for (int i = 0; i < 1000000; ++i) {
+        sum += 1;
+    }
+
+    return nullptr;
+}
+*/
+
+//오직 한 개의 스레드만 메모리에 접근 가능하게 만듦
 /*
 void *thread_routine(void *arg){
     printf("%s\n", (char *)arg);
@@ -40,6 +55,7 @@ void *thread_routine(void *arg){
 }
 */
 
+//최대한 동기화 없이 수행 좋은 성능
 void *thread_routine(void *arg){
     printf("%s\n", (char *)arg);
 

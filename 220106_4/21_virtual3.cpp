@@ -79,6 +79,9 @@ int main(){
 class Item{};
 
 class File : public Item {};
+
+// 자신의 부모를 포함하는 형태
+// => 재귀적 합성 설계 방법
 class Folder : public Item {
     vector<Item*> v;
 };

@@ -16,6 +16,9 @@ int main(){
 #endif
 
 #if 0
+
+// 가상 함수를 한 개라도 가지고 있는 클래스는 반드시 소멸자도 가상 소멸자 이어야 한다. (중요하다잉)
+
 class Base{
 public:
     Base(){cout << "Base()" << endl;}

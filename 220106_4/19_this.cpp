@@ -8,6 +8,7 @@ private:
 
 public:
     //this : 멤버 함수를 호출한 객체의 주소가 전달된다.
+    // >  객체 주속값
     void set(int a, int b){ //컴파일러는 set(Point *this, int a, int b){this->x = a; this->y = b;} 이렇게 만든다.
         x = a;              //void set(Point* const this, int a, int b) //this 다른 값을 못바꾸는 상수포인터 된다.
         y = b;              //  this->x = a;
@@ -20,7 +21,7 @@ public:
     //객체가 생성되지 않아도 호출될 수 있다.
     // > 멤버 변수와 멤버 함수를 사용할 수 없다.
     // - this가 전달되지 않습니다.
-    static void goo(){}
+    static void goo(){} //goo 는 thish가 전달될 필요 없다.
 
     static int add(int a, int b){ return a + b;}
 

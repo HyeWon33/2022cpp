@@ -14,6 +14,7 @@ public:
     // => 함수 오버라이딩 (오버로딩과 다르다.) 
     //함수 오버라이딩은 부모가 제공하는 함수와 동일한 이름으로 자식이 정의 하는 것.
     virtual void Cry() { cout << "Dog cry" << endl;} //2번 <- void Cry() { cout << "Dog cry" << endl;} 
+    void Cry() override { cout << "Dog cry" << endl;} //2 요즘 스타일
     // 자식이 재정의하는 부모의 멤버 함수는 반드시 가상 함수 이어야 한다.
 };
 
@@ -43,12 +44,16 @@ int main() {
     Animal a;
     Dog d;
 
-    a.Cry(); //Animal cry 1
-    d.Cry(); //Dog cry 2
+    // a.Cry(); //Animal cry 1
+    // d.Cry(); //Dog cry 2
 
     //Upcasting
     Animal* p = &d;
     p->Cry() //1?2? => 2
+
+    //virtual 다 없을 때
+    // p = &d;
+    // p->Cry(); //animal
 }
 
 //부모꺼만 virtual써도 괜찮은데 자식도 써주자는 약속

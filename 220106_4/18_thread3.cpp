@@ -13,7 +13,7 @@ int main(){
     std::cout << "main thread" << std::endl;
     std::thread t1(&foo);
 
-    t1.join();
+    t1.join(); //종료할 때까지 대기
 }
 #endif
 
