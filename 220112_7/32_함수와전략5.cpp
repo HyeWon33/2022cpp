@@ -6,6 +6,7 @@ bool cmp2(int a, int b){ return a < b;} // 내림차순
  
 #include <algorithm> // 이미 정책 변경 가능한 sort가 이 안에 있다.
 
+#if 0
 int main(){
     int x[10] = {1,3,5,7,9,2,4,6,8,10};
 
@@ -15,6 +16,7 @@ int main(){
         cout << e << endl;
     }
 }
+#endif
 
 #include <functional> // less<>, greater<> 함수 객체가 있다.
 
