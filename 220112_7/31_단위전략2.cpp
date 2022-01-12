@@ -12,15 +12,6 @@ using namespace std;
 
 // 책 모던 c++ 디자인
 
-template <typename T, typename ThreadModel>
-class List : public ThreadModel{
-public:
-    void push_front(const T& a){
-        ThreadModel::Lock();
-        cout << "데이터 삽입" << endl;
-        ThreadModel::Unlock();
-    }
-};
 
 // 스레드의 정책을 가지는 정책 클래스를 만든다.
 class SingleThread{
@@ -33,6 +24,16 @@ class MultiThread{
 public:
     inline void Lock(){cout << "동기화 시작" << endl;}
     inline void Unlock() {cout << "동기화 종료" << endl;}
+};
+
+template <typename T, typename ThreadModel = SingleThread>
+class List : public ThreadModel{
+public:
+    void push_front(const T& a){
+        ThreadModel::Lock();
+        cout << "데이터 삽입" << endl;
+        ThreadModel::Unlock();
+    }
 };
 
 List<int, MultiThread> s1;
