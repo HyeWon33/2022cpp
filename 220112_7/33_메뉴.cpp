@@ -17,6 +17,9 @@ class BaseMenu {
     std::string title;
 public: 
     BaseMenu(const std::string& s) : title(s){}
+
+    virtual ~BaseMenu() { }
+
     std::string GetTitle() const { return title; }
 
 
@@ -39,6 +42,13 @@ class PopupMenu : public BaseMenu{
     std::vector<BaseMenu*> v; // 핵심!!
 public:
     PopupMenu(const std::string& s) : BaseMenu(s){}
+
+    //메모리 누수 생각하지 않고 작성
+    ~PopupMenu()
+    {
+        for (auto e : v)
+            delete e;
+    }
 
     void AddMenu(BaseMenu* p)
     {

@@ -4,8 +4,8 @@
 using namespace std;
 
 // 1. File / Folder
-//  => 공통의 부모 : Item
-//  => 다형성 : GetSize()
+//  => 공통의 부모: Item
+//  => 다형성: GetSize()
 //   * 폴더는 내부의 파일의 크기의 총 합을 통해 구해진다.
 //   * 파일은 자신의 크기 정보를 가지고 있다.
 
@@ -18,7 +18,11 @@ public:
     {
     }
 
+    virtual ~Item() { } // !!
+
     virtual int GetSize() const = 0;
+
+    std::string GetName() const { return name; }
 };
 
 class File : public Item {
@@ -31,6 +35,11 @@ public:
     {
     }
 
+    ~File()
+    {
+        cout << GetName() << " 파일 삭제" << endl;
+    }
+
     int GetSize() const override
     {
         return fileSize;
@@ -38,9 +47,19 @@ public:
 };
 
 class Folder : public Item {
-    std::vector<Item*> v;
+    std::vector<Item*> v; //핵심 구조 
+                          // 재귀적 합성: 자기자신에 대한 타입도 형제 타입도 포함 가능한거
 
 public:
+    ~Folder()
+    {
+        // 자신이 소유한 모든 객체에 대해서 메모리 해지해 주어야 합니다.
+        for (auto e : v)
+            delete e;
+
+        cout << GetName() << " 폴더 삭제" << endl;
+    }
+
     Folder(const std::string& s)
         : Item(s)
     {
