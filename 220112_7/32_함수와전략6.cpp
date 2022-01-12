@@ -23,6 +23,11 @@ int main(){
     //  => *람다(Lambda)* : 코드 블록을 참조하는 기술 
     //   : C++11 문법으로 지원한다.
     //   - c++에서는 익명의 함수객체를 생성하는 기술
-    sort(x, x+10, [](int a, int b){return a > b;});
+    sort(x, x+10, [](int a, int b){return a < b;});
+    //  => 람다는 클로저(Closure)를 지원한다.
+
+    for(auto e : x){
+        cout << e << endl;
+    }
 
 }
