@@ -52,7 +52,7 @@ int main(){
     // [&n] : capture by reference
     //   => 클로저 : 다른 컨텍스트의 변수의 참조가 가능하다.
     
-    foo([n](int a, int b){
+    foo([&n](int a, int b){
         ++n;
         return a+ b + n;
     });
