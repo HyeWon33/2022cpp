@@ -57,7 +57,7 @@ int main(){
     // Point p3 = p1.operator+(p2);
     // Point p3 = operator+(p1, p2);
 
-    // Point p3 = p1.Add(p2);
+    // Point p3 = p1.Add(p2); 
     // p3.Print();
 }
 
