@@ -48,8 +48,9 @@ int main(){
     int n = 100;
     // n을 람다 표현식에서 전달하는 것이 가능하다.
     //  => 캡쳐
-    // [n] : capture by value
-    // [&n] : capture by reference
+    // [n] : capture by value  [=]
+    // [&n] : capture by reference [&]
+    // [this] : 멤버 함수 안에서 람다 표현식을 사용할 경우, 다른 멤버 함수 또는 데이터에 접근이 가능하다.
     //   => 클로저 : 다른 컨텍스트의 변수의 참조가 가능하다.
     
     foo([&n](int a, int b){

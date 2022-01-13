@@ -44,3 +44,5 @@ int main(){
 
     s2.push_front(20);
 }
+
+//추가..
