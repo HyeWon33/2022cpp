@@ -42,6 +42,7 @@ public:
     std::string GetTitle() const { return title; }
 
     //----
+    // 캡슐화 정책의 위배가 발생할 수 있다.
     void SetTitle(const std::string& s) { title = s; }
     //----
 
