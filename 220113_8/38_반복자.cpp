@@ -78,7 +78,8 @@ int main()
     s.push_front(20);
     s.push_front(30);
 
-    Slist<int>::iterator p = xfind(s.begin(), s.end(), 20);
+    // Slist<int>::iterator p = xfind(s.begin(), s.end(), 20);
+    auto p = xfind(s.begin(), s.end(), 20); //auto
     if (p != s.end()) {
         cout << *p << endl;
     }
@@ -113,3 +114,5 @@ int main()
 #endif
 
 //여기 부분 밀렸다.
+
+//auto는 많이 사용한다. 타입이 중요한 부분은 명시적으로 쓰고 나머지는 그냥 auto쓴다.

@@ -3,7 +3,7 @@ using namespace std;
 
 // 컨테이너 기술. 3. Thin Template
 // 1. void* 기반으로 만든다.
-
+//void* 모든 자료형 담을 수 있다?
 struct Node{
     void* data;
     Node* next;
@@ -31,7 +31,7 @@ public:
 template <typename T>
 class Slist : private SlistImpl{ //<-class Slist : public SlistImpl{
 public:
-    inline void push_front(const T& a){ //인라인은 치환 호출하면 코드메모리 존재 점프하고 수행하고 돌아오고. 치환으로 쓰면 코드메모리에 남아있지 않다 인라인으로 쓰면 코드메모리 상에 존재하지 않는다. 인라인이 핵심이다.
+    inline void push_front(const T& a){ //인라인은 치환 호출하면 코드메모리 존재 점프하고 수행하고 돌아오고. 치환으로 쓰면 코드메모리에 남아있지 않다 인라인으로 쓰면 코드메모리 상에 존재하지 않는다. 인라인이 핵심이다. 메모리 오버헤드 줄일 수 있다.
         // &a => const T* => const_cast => T* => void* 
         SlistImpl::push_front(const_cast<T*>(&a));
     }

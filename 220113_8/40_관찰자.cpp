@@ -4,6 +4,8 @@ using namespace std;
 
 #include <cstring> // memset
 
+//관찰자 정말 중요하다. reactive라고 부른다..
+
 // 1. 관찰자 패턴(Observer Pattern)
 //  Subject: 데이터
 //  Observer: 관찰자

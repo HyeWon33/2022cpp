@@ -13,6 +13,7 @@ using namespace std;
 class PopupMenu;
 class MenuItem;
 
+// 연산을 수행하는 객체가 구현해야 하는 인터페이스
 struct MenuVisitor{
     virtual ~MenuVisitor() {}
 
@@ -21,6 +22,7 @@ struct MenuVisitor{
 };
 
 // 방문자를 통해서 연산을 수행하도록 만들어주기 위해서는 아래 인터페이스를 구현해야 한다.
+//  > 연산의 대상자 인터페이스
 struct MenuAcceptor{
     virtual ~MenuAcceptor() {}
 

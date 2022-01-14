@@ -153,6 +153,26 @@ public:
     inline ~AutoLock() { mLock.unlock(); }
 };
 
+//--------------
+// lock_guard의 구현 원리
+template <typename Lock>
+class scoped_lock {
+    Lock& lock;
+
+public:
+    scoped_lock(Lock& l)
+        : lock(l)
+    {
+        lock.lock();
+    }
+
+    ~scoped_lock()
+    {
+        lock.unlock();
+    }
+};
+//----------------
+
 class Cursor{
 private:
     Cursor() {}
